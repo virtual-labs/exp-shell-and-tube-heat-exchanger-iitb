@@ -1,0 +1,73 @@
+let a4_left_content = `
+<div id=''>
+<div style="display: flex;" id="a4-rho">
+   <p style="width: 120px ;">&rho;</p>
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="0.835 gm/cc" id="a4-rho-unit1">
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="835 kg/cu.m" id="a4-rho-unit2">
+</div>
+<div id="a4-cp">
+   <p>cp</p>
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="2.71 J/gm-k" id="a4-cp-unit1">
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="0.64769 kcal/kg C" id="a4-cp-unit2">
+</div>
+<div id="a4-k">
+   <p>k</p>
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="0.127 w/m-k" id="a4-k-unit1">
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="0.10909 kcal/hr m C" id="a4-k-unit2">
+</div>
+<div id="a4-rho">
+   <p>&mu;</p>
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="2.941 cp" id="a4-mu-unit1">
+   <input class="form-control" style="width:15%; font-size:1.1vw; margin: 0 5px; text-align: center;" type="text" disabled value="0.00294 kg/m S" id="a4-mu-unit2">
+</div>
+</div>
+`;
+
+function activity4() {
+	pp.clearleftpannel();
+	pp.clearrightpannel();
+	pp.addoffcanvas(3);
+	pp.addcanvas('mycanvas');
+	pp.addtoleftpannel(a4_left_content);
+
+	pp.showtitle(`<p id='exp-title'>Shell and Tube type heat exchanger</p>`, 3);
+	// pp.showdescription(
+	// 	`<p class='discription_text'>Observe the assembly. Next task is to <span class="text-color-blue">Assemble it yourself.<span></p>`,
+	// 	3
+	// );
+	show_right_pannel(3);
+
+	canvas = pp.canvas;
+	context = canvas.getContext('2d');
+	canvas.style.cursor = 'crosshair';
+	rect = canvas.getBoundingClientRect();
+	scene = new Scene();
+
+	window.onload = a4_windowresize;
+	window.onresize = a4_windowresize;
+	a4_windowresize();
+}
+
+function a4_windowresize() {
+	//canvas size
+	a4_canvas_size();
+	//canvas mapping
+	a4_canvas_mapping();
+	scene.draw();
+}
+
+function a4_canvas_size() {
+	canvas.width = window.innerWidth * 0.91;
+	canvas.height = ((canvas.width * 1080.0) / 1920) * 0.85;
+	lscale = canvas.width / 1920.0;
+	document.getElementById('leftpannel').style.height =
+		canvas.height + 5 + 'px';
+	document.getElementById('leftpannel').style.margin = '0';
+}
+
+function a4_canvas_mapping() {
+	context.translate(0, canvas.height);
+	context.scale(1, -1);
+}
+
+activity4();

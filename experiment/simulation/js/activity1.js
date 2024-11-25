@@ -8,9 +8,9 @@ var cc = (document.getElementById('pannelcreate'));
 var pp = new Pannel(cc);
 pp.addoffcanvas(3);
 var act1_btn = document.createElement('div');
-act1_btn.innerHTML = `<button id="panel1_btn" class="btn btn-primary" onclick="move_to_activity2()" style="position: absolute; font-size:1.1vw; left:2.2vh; bottom: 12vh;  width: 90%;">Next</button>`;
+act1_btn.innerHTML = `<button id="panel1_btn" class="btn btn-primary" onclick="move_to_activity2()" >Next</button>`;
 var act1_start_button = document.createElement('div');
-act1_start_button.innerHTML = `<button id="panel1_btn" class="btn btn-primary" onclick="start_act1();" style="position: absolute; font-size:1.1vw; left:2.2vh; bottom: 12vh;  width: 90%;">Start</button>`;
+act1_start_button.innerHTML = `<button id="panel1_btn" class="btn btn-primary" onclick="start_act1();">Start</button>`;
 function start_act1() {
     document.getElementById('panel1_btn').remove();
     canvas.addEventListener('click', a1_mouseclick);
@@ -69,8 +69,12 @@ function activity1() {
     a1_windowresize();
     var bsOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight3'));
     bsOffcanvas.show();
-    a1_draw_all_components();
-    window.addEventListener('resize', a1_display_current_question);
+    setTimeout(() => {
+        a1_draw_all_components();
+        window.addEventListener('resize', a1_display_current_question);
+        pp.addtorightpannel(act1_start_button.innerHTML, 3);
+        load_higlighted_images();
+    }, 200);
     // add_button(`<button id='screen-button' class="btn btn-info" style="width: 100%; margin-bottom: 5%;" onclick="(() =>{
     //     document.getElementById('screen-button').remove();
     //     canvas.addEventListener('click',a1_mouseclick);
@@ -78,9 +82,7 @@ function activity1() {
     //      a1_random_questions();
     //      a1_display_current_question();})();
     //    ">Start</button>`);
-    pp.addtorightpannel(act1_start_button.innerHTML, 3);
     // question_div_box.innerHTML = act1_start_button.innerHTML;
-    load_higlighted_images();
 }
 function a1_windowresize() {
     //canvas size
@@ -415,5 +417,5 @@ function a1_mouseclick(e) {
     let y = Math.round((canvas.height - (e.clientY - rect.y)) / lscale);
     a1_check_isinside(x, y);
 }
-activity1();
+setTimeout(() => { activity1(); }, 500);
 //# sourceMappingURL=activity1.js.map

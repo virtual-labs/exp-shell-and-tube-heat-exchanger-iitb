@@ -51,7 +51,7 @@ function activity7() {
    $$ \\frac {1} {h_o} = \\frac {1}{5000} $$ <br>
    $$ \\frac {1} {h_i} = \\frac {1} {U_i} - \\frac {1}{h_o} $$ <br>
    $$ hi_{exp} = \\frac {1}{\\frac {1}{h_i}} $$ <br>
-   $$ hi_{theo} = c_{val} × Re^{0.52} × Pr^{b_{val}} $$ <br>
+   $$ hi_{theo} = c_{val} × Re^{0.453} × Pr^{b_{val}} $$ <br>
 </p>`, 4);
     let hide_btn = (document.getElementsByClassName('offcanvasbtn')[1]);
     hide_btn.style.display = 'none';

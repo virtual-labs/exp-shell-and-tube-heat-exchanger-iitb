@@ -336,7 +336,7 @@ function assemble1(obj) {
                 adj[7][0].y = 262;
             }
             if (current_msg_i == 11) {
-                create_activity_6_button();
+                create_activity_4_button();
             }
             show_right_pannel(3);
             break;
@@ -466,12 +466,12 @@ function a3_remove_event() {
     window.removeEventListener('load', a3_windowresize);
     window.removeEventListener('resize', a3_windowresize);
 }
-function create_activity_6_button() {
+function create_activity_4_button() {
     console.log('created');
     pp.showtitle(`<p id='exp-title'>You've completed the task click on next to start new activity</p>`, 3);
     pp.showdescription(``, 3);
     var act3_btn = document.createElement('div');
-    act3_btn.innerHTML = `<button id="panel2_btn" class="btn btn-primary" onclick="activity6()" style="position: absolute; font-size:1.1vw; left:2.5vh; bottom: 12vh;  width: 90%;">Next</button>`;
+    act3_btn.innerHTML = `<button id="panel2_btn" class="btn btn-primary" onclick="activity4()" style="position: absolute; font-size:1.1vw; left:2.5vh; bottom: 12vh;  width: 90%;">Next</button>`;
     pp.addtorightpannel(act3_btn.innerHTML, 3);
     show_right_pannel(3);
 }

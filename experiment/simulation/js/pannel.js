@@ -25,7 +25,7 @@ class Pannel {
         aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header" style="display: flex !important; flex-direction: column !important;">
 
-        <button id="hide_panel${id}" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button id="hide_panel${id}" type="button" class="btn btn-danger close-btn" data-bs-dismiss="offcanvas" aria-label="Close"> Hide Pane</button>
         <h5 class="offcanvas-title" id="offcanvasRightLabel${id}"></h5>
            
         </div>
@@ -34,7 +34,7 @@ class Pannel {
 
         </div>
     </div>
-    <button class="offcanvasbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight${id}" aria-controls="offcanvasRight${id}" style="width: 4%;"><i class="bi bi-gear offcanvasicon" style="font-size: calc(1vw + 12px);"></i></button>
+    <button class="offcanvasbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight${id}" aria-controls="offcanvasRight${id}" style="width: 4%;"><i class="bi bi-arrow-bar-left offcanvasicon" style="font-size: calc(1vw + 12px);"></i></button>
       <br>  `;
     }
     addcanvas(canvasid) {
