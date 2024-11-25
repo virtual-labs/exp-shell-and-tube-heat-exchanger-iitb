@@ -159,7 +159,7 @@ for (let i = 0; i < shell_table.t.length; i++) {
     shell_table['hi_exp'][i] = 1 / shell_table['hi1'][i];
     shell_table['hi_theo'][i] =
         3.048129612 *
-            Math.pow(shell_table['Re'][i], 0.52) *
+            Math.pow(shell_table['Re'][i], 0.453) *
             Math.pow(shell_table['Pr'][i], 0.5710080628);
 }
 console.log(shell_table);

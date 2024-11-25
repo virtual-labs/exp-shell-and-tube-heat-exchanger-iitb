@@ -16,7 +16,7 @@ heater.src = './images/Separate_components/Heater.webp';
 var pipe_h_img = new Image();
 pipe_h_img.src = './images/Separate_components/Pipe_01.webp';
 var pipe_v_img = new Image();
-pipe_v_img.src = './images/Separate_components/pipe_02.webp';
+pipe_v_img.src = './images/Separate_components/Pipe_02.webp';
 var glass_sec = new Image();
 glass_sec.src = './images/Separate_components/GlassSection_01.webp';
 var glass_sec_fill = new Image();
@@ -51,7 +51,7 @@ var temp_indicator_w = new Image();
 temp_indicator_w.src =
     './images/Highlighted_Images/Temp_indicator_01_PurpleGlow.webp';
 var test_section_r = new Image();
-test_section_r.src = './images/Highlighted_Images/Test_Section_Orangeglow.webp';
+test_section_r.src = './images/Highlighted_Images/Test_Section_OrangeGlow.webp';
 var test_section_w = new Image();
 test_section_w.src = './images/Highlighted_Images/Test_Section_PurpleGlow.webp';
 var heater_r = new Image();

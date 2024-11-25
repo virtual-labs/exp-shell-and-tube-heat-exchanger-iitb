@@ -13,18 +13,26 @@ var show_once = true;
 let ob_data = [];
 let ob_table_verified = false;
 var temp_con = [];
+let a6_slider = `<input type="range" style="position:absolute; left:15vw; top:38vw; width:8vw;" disabled min="0" max="7" id="level-slider" value="0">`;
 // var ti: number;
 // var to: number;
 // function new_task_6(text: string) {
 // 	// document.getElementById("a6-question-div-box").innerText = text;
 // 	pp.showtitle(text, 3);
 // }
+let all_canvas = `
+<canvas id="mycanvas">
+
+</canvas>`;
 function activity6() {
     pp.clearleftpannel();
     pp.clearrightpannel();
     pp.addoffcanvas(3);
-    pp.addcanvas('mycanvas');
-    canvas = pp.canvas;
+    // pp.addcanvas('mycanvas');
+    // canvas = pp.canvas;
+    pp.addtoleftpannel(all_canvas);
+    pp.addtoleftpannel(a6_slider);
+    canvas = document.getElementById('mycanvas');
     pp.showtitle(`<p id='exp-title'> Perform task to simulate the experiment </p>`, 3);
     canvas.style.cursor = 'crosshair';
     context = canvas.getContext('2d');
@@ -217,20 +225,44 @@ function draw_seq_all() {
     else if (seq == 13) {
         seq_container[2].draw();
         console.log('glass fill animation completed');
+        canvas.addEventListener('click', a6_mouseclick_seq_14);
+        seq = 14;
+        seq_container.splice(seq_container.length - 1, 1);
+        seq_container[0].img = seq10_img;
+        pp.showdescription(`<p class='discription_text'>Open outlet glass valve</p>`, 3);
+        show_right_pannel(3);
+        draw_seq_all();
         // let a6_text = new Chemistry.Text("Observation Table", new Chemistry.Point(1125, 600), canvas);
         // a6_text.color = "yellow";
         // a6_text.font = "24px";
         // a6_text.draw();
         // document.getElementById("a6-question-div-box").innerText = "See Table for 8 different flow rates";
-        pp.showdescription(`<p class='discription_text'>Note down all the readings, you'll require it to fill the table in the next activity</p>`, 3);
-        show_table_0 = true;
-        if (t0) {
-            t0 = false;
-        }
-        if (!document.getElementById('table-btn')) {
-            pp.addtorightpannel(`<button style="position: absolute; font-size:1.1vw; left:2.5vh; bottom: 12vh;  width: 90%;" id="table-btn" class="btn btn-primary" onclick="load_observation_table();">Next</button>`, 3);
-        }
         // show_right_pannel(3);
+    }
+    else if (seq == 15 &&
+        seq_container[seq_container.length - 1].l <
+            seq_container[seq_container.length - 1].l_last) {
+        seq_container[2].draw();
+        window.requestAnimationFrame(draw_seq_all);
+    }
+    else if (seq == 15) {
+        if ((seq_container[1].name = 'fifth')) {
+            // seq_container.splice(1, 1);
+            seq_container[0].img = seq4_img;
+            seq = 16;
+            //start next animation
+            draw_seq_all();
+            seq_container[2].draw();
+            pp.showdescription(`<p class='discription_text'>Note down all the readings, you'll require it to fill the table in the next activity</p>`, 3);
+            show_right_pannel(3);
+            show_table_0 = true;
+            if (t0) {
+                t0 = false;
+            }
+            if (!document.getElementById('table-btn')) {
+                pp.addtorightpannel(`<button style="position: absolute; font-size:1.1vw; left:2.5vh; bottom: 12vh;  width: 90%;" id="table-btn" class="btn btn-primary" onclick="load_observation_table();">Next</button>`, 3);
+            }
+        }
     }
     //add all valve draw
 }
@@ -261,6 +293,8 @@ function a6_mouseclick_seq_2(e) {
     if (y >= 494 && y <= 545) {
         if (x >= 598 && x <= 681) {
             seq = 3;
+            let slider = (document.getElementById('level-slider'));
+            slider.value = '1';
             canvas.removeEventListener('click', a6_mouseclick_seq_2);
             console.log('Open hot fluid pump outlet valve');
             //document.getElementById("a6-question-div-box").innerText = "Open hot fluid pump valve";
@@ -579,7 +613,7 @@ function a6_mouseclick_timer_reset(e) {
             // a6_text.font = "24px";
             // a6_text.draw();
             //   document.getElementById("a6-question-div-box").innerText = "Close outlet gas valve and start timer";
-            pp.showdescription(`<p class='discription_text'>Close outlet glass valve and start timer</p>`, 3);
+            pp.showdescription(`<p class='discription_text'>Close outlet glass valve</p>`, 3);
             show_right_pannel(3);
         }
     }
@@ -609,6 +643,29 @@ function a6_mouseclick_seq_12(e) {
             all_valves[1].stpt.y = 520;
             draw_seq_all();
             //animate glass section fill
+        }
+    }
+}
+function a6_mouseclick_seq_14(e) {
+    let x = Math.round((e.clientX - rect.x) / lscale);
+    let y = Math.round((canvas.height - (e.clientY - rect.y)) / lscale);
+    console.log(x, y);
+    if (y >= 477 && y <= 550) {
+        if (x >= 593 && x <= 660) {
+            seq = 15;
+            canvas.removeEventListener('click', a6_mouseclick_seq_14);
+            var second_geo1 = new Chemistry.anim_image_y_dir_down(seq4_img, new Chemistry.Point(470, 440), 709, 650, canvas);
+            all_valves[1].img = purple_valve;
+            all_valves[1].stang = 45;
+            all_valves[1].stpt.y = 510;
+            all_valves[1].draw();
+            seq_container.push(second_geo1);
+            second_geo1.name = 'fifth';
+            second_geo1.startx = 400;
+            second_geo1.l = 80;
+            second_geo1.l_last = 500;
+            second_geo1.width = 1;
+            draw_seq_all();
         }
     }
 }
@@ -776,9 +833,9 @@ function load_observation_table_data() {
    </table>
 </div>`;
     pp.addtoleftpannel(ob_table);
-    pp.showtitle('Observation table data', 3);
+    pp.showtitle(`<p id='exp-title'>Observation table data</p>`, 3);
     pp.addtorightpannel(`<button id="panel2_btn" class="btn btn-primary" onclick="activity7()" style="position: absolute; font-size:1.1vw; left:2.5vh; bottom: 12vh;  width: 90%;">Next</button>`, 3);
-    // show_right_pannel(3);
+    show_right_pannel(3);
 }
 function generateRows() {
     let rowsHtml = '';
