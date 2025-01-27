@@ -1,11 +1,56 @@
 [
     {
-        "question": "Sample Question",
+        "question": "The heat transfer coefficient is proportional to volumetric flowrate raised to thepower:",
         "qid": 1,
-        "option_a": "Option A",
-        "option_b": "Option B",
-        "option_c": "Option C",
-        "option_d": "Option D",
-        "correct_option": "a"
+        "option_a": "0.3",
+        "option_b": "0.4",
+        "option_c": "0.14",
+        "option_d": "0.8",
+        "correct_option": "d"
+    },
+
+    {
+        "question": " The effect of temperature on the heat transfer coefficient is:",
+        "qid": 2,
+        "option_a": "Decreases with temperature",
+        "option_b": "Increases with temperature",
+        "option_c": "Independent of temperature",
+        "option_d": "",
+        "correct_option": "b"
+    },
+
+    {
+        "question": "The power of Prandtl number for the cooling service is:",
+        "qid": 3,
+        "option_a": "0.14",
+        "option_b": "0.33",
+        "option_c": "0.3",
+        "option_d": "0.4",
+        "correct_option": "c"
+    },
+
+    {
+        "question": "Which of the following is true with respect to mode of transfer in the case of forced convection?",
+        "qid": 4,
+        "option_a": "Only Conduction",
+        "option_b": "Only Convection",
+        "option_c": "Conduction and Convection",
+        "option_d": "Conduction, Convection and Radiation",
+        "correct_option": "c"
+    },
+
+    {
+        "question": "Which of the following is true for the dependence of heat transfer coefficient on the viscosity for cooling operation under turbulent flow conditions?",
+        "qid": 5,
+        "option_a": "$$ h \\propto \\mu^{0.8} $$",
+        "option_b": "$$ h \\propto \\mu^{0.4} $$",
+        "option_c": "$$ h \\propto \\mu^{0.3} $$",
+        "option_d": "$$ h \\propto \\mu^{0.14} $$",
+        "correct_option": "b"
     }
+
+
 ]
+
+
+
