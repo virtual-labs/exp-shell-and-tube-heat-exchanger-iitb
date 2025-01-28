@@ -1,0 +1,55 @@
+[
+    {
+        "question": "The role of pass divider in a shell and tube heat exchanger is:",
+        "qid": 1,
+        "option_a": "To increase the velocity of the fluid",
+        "option_b": "To prevent leakage of tube side fluid with the shell side fluid",
+        "option_c": "To support the tube-sheet",
+        "option_d": "To maintain the required baffle spacing",
+        "correct_option": "a"
+    },
+
+    {
+        "question": "Which of the following holds in the case of baffles in a shell and tube heat exchanger?",
+        "qid": 2,
+        "option_a": "Increase the heat transfer area",
+        "option_b": "Support the tubes and induce turbulence",
+        "option_c": "Support and strengthen the shell",
+        "option_d": "Reduce pressure drop",
+        "correct_option": "b"
+    },
+
+    {
+        "question": "Which of the following is more appropriate with respect to the role of tube sheet inshell and tube heat exchanger?",
+        "qid": 3,
+        "option_a": "Supports the tubes",
+        "option_b": "Prevents intermixing of tube and shell side fluids",
+        "option_c": "Increases the velocity of the fluid",
+        "option_d": "Increases the heat transfer coefficient",
+        "correct_option": "b"
+    },
+
+    {
+        "question": "Which of the following terms holds true for turbulent flow?",
+        "qid": 4,
+        "option_a": "Parabolic profile",
+        "option_b": "Eddies",
+        "option_c": "Viscous boundary layer",
+        "option_d": "",
+        "correct_option": "b"
+    },
+
+    {
+        "question": "The magnitude of heat transfer coefficient in turbulent flow is ___________ relative to laminar flow.",
+        "qid": 5,
+        "option_a": "Equal to",
+        "option_b": "Lower",
+        "option_c": "Higher",
+        "option_d": "",
+        "correct_option": "c"
+    }
+
+
+]
+
+
